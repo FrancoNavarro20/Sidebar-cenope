@@ -80,9 +80,10 @@ $(document).ready(function () {
 
 
         //Achicar mapa
-        $("#map-cenope").toggleClass("active-mapa");
+        //$("#map-cenope").toggleClass("active-mapa");
 
         //Para abrir mapa al abrir el primer sidebar responsiado;
+        /*
         if($("#mapa").hasClass("tamanoA")){
            $("#mapa").removeClass("tamanoA")
            $("#mapa").addClass("tamanoB");
@@ -94,6 +95,7 @@ $(document).ready(function () {
             $("#mapa").removeClass("tamanoB")
             $("#mapa").addClass("tamanoA"); 
         }
+        */
 
     
         //
@@ -289,11 +291,9 @@ $(document).ready(function () {
 
 
 
-
-
     //---------------------Mostrar sidebar del boton lupa---------------------//
     $("#lupa").click(function () {  
-
+        alert("este es el home");
         $(".sidebar-search").hide(); // esconder sub-menu del boton de capas
         $(".sidebar-search-info").hide(); // esconder sub-menu del boton de info
         $(".sidebar-search-lupa").toggleClass('active3');   

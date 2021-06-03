@@ -9,7 +9,11 @@ $conexion = mysqli_connect( $hostname, $username, $password, $database) or die (
 
 mysqli_set_charset($conexion,"utf8");
 
-$consulta = "SELECT * FROM capa_sig_unidades_militares";
+if (isset($_POST['cod_uni']) && $_POST['cod_uni']!="TODOS") {
+    $consulta = "SELECT * FROM capa_sig_unidades_militares WHERE cod_unisup='".$_POST['cod_uni']."'";
+} else {
+    $consulta = "SELECT * FROM capa_sig_unidades_militares";
+}
 
 $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
 
@@ -17,12 +21,6 @@ $features = array();
 $i=0;
 while ($columna = mysqli_fetch_array($resultado))
 {
-	/*
-	echo "<tr>";
-	echo "<td>" . $columna['cod_uni'] . "</td><td>" . $columna['abrev'] . "</td>";
-	echo "</tr><br>";
-	*/
-	//$features[] = $columna;
 	$features[] = array(
         'type' => 'Feature',
         'properties' => array('gid' => ++$i,
